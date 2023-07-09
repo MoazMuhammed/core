@@ -19,14 +19,19 @@ class AppTextField extends StatefulWidget {
     this.validators,
     required this.textInputAction,
     required this.textInputType,
-     this.title = "",  this.obscureText = false, this.enable,
-    this.isImage = false,  this.uploadMedicalId, this.prefixIcon,
+    this.title = "",
+    this.obscureText = false,
+    this.enable,
+    this.isImage = false,
+    this.uploadMedicalId,
+    this.prefixIcon,
   }) : super(key: key);
   final Color textColor;
   final String hint;
   final TextInputType keyboardType;
   final VoidCallback? uploadMedicalId;
-  final String title ;
+  final String title;
+
   final bool isPassword;
   final bool isImage;
   final FormFieldValidator<dynamic>? validators;
@@ -40,77 +45,90 @@ class AppTextField extends StatefulWidget {
   EdgeInsetsGeometry? padding;
   final Widget? prefixIcon;
 
- late bool obscureText;
-
+  late bool obscureText;
 
   @override
   State<AppTextField> createState() => _AppTextFieldState();
 }
 
 class _AppTextFieldState extends State<AppTextField> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20.sp),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade200,
+            blurStyle: BlurStyle.normal,
+            offset: const Offset(5, 1),
+            blurRadius: 14,
+          ),
+        ],
+      ),
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.sp,vertical: 6.sp),
-            child: Row(
-              children: [
-                Text(
-                  widget.title,
-                  style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.bold),
+          SizedBox(height: 8.h,
+            child: TextFormField(
+              validator: widget.validators,
+              obscureText: widget.obscureText,
+              controller: widget.controller,
+              enabled: widget.enable,
+              keyboardType: widget.textInputType,
+              textInputAction: widget.textInputAction,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: AppColors.container,
+                // Set fill color to gray
+                border: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white),
+                  // Set border color to white
+                  borderRadius: BorderRadius.all(Radius.circular(17.sp)),
                 ),
-              ],
-            ),
-          ),
-
-          TextFormField(
-            validator: widget.validators,
-            obscureText: widget.obscureText,
-            controller: widget.controller,
-            enabled: widget.enable,
-            keyboardType: widget.textInputType,
-            textInputAction: widget.textInputAction,
-            decoration: InputDecoration(
-              focusColor: AppColors.black,
-              focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.container,width: 0.2.w)),prefixIcon:widget.prefixIcon,
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.sp))),
-              suffixIcon: Stack(
-                alignment: AlignmentDirectional.center,
-                children: [
-                  Visibility(
-                    visible: widget.isImage,
-                    child: InkWell(
-                      onTap: widget.uploadMedicalId,
-                      child: AppSVG(assetName: "upload"),
-                    ),
-                  ),
-                  Visibility(
-                    visible: widget.isPassword,
-                    child: InkWell(
-                      onTap: () {
-                        setState(() {
-                          widget.obscureText = !widget.obscureText;
-                        });
-                      },
-                      child: Icon(
-                        widget.obscureText ? Icons.visibility_off : Icons.visibility,
-                        color: Theme.of(context).brightness == Brightness.light ?Colors.black:Colors.white,
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white),
+                  // Set focused border color to white
+                  borderRadius: BorderRadius.all(Radius.circular(17.sp)),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.white),
+                  // Set enabled border color to white
+                  borderRadius: BorderRadius.all(Radius.circular(17.sp)),
+                ),
+                prefixIcon:widget.prefixIcon,
+                suffixIcon: Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    Visibility(
+                      visible: widget.isImage,
+                      child: InkWell(
+                        onTap: widget.uploadMedicalId,
+                        child: AppSVG(assetName: "upload"),
                       ),
                     ),
-                  ),
-                ],
+                    Visibility(
+                      visible: widget.isPassword,
+                      child: InkWell(
+                        onTap: () {
+                          setState(() {
+                            widget.obscureText = !widget.obscureText;
+                          });
+                        },
+                        child: Icon(
+                          widget.obscureText ? Icons.visibility_off : Icons.visibility,
+                          color: Theme.of(context).brightness == Brightness.light ?Colors.black:Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                hintText: widget.hint,
+
               ),
-              hintText: widget.hint,
             ),
           ),
-
-          SizedBox(height: 1.h,)
+          SizedBox(
+            height: 1.h,
+          )
         ],
       ),
     );

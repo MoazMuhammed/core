@@ -1,6 +1,8 @@
 import 'package:core/CORE/API/my_dio.dart';
 import 'package:core/CORE/cubits/internet/internet_cubit.dart';
 import 'package:core/CORE/cubits/language/language_cubit.dart';
+import 'package:core/CORE/features/Login_Screen/View/login_screen.dart';
+import 'package:core/CORE/features/Register_Screen/View/register_screen.dart';
 import 'package:core/CORE/features/Splash_Screen/splash_screen.dart';
 import 'package:core/CORE/shared_preferences/my_shared.dart';
 import 'package:core/CORE/styles/theme_provider.dart';
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
                         GlobalCupertinoLocalizations.delegate,
                         GlobalWidgetsLocalizations.delegate,
                       ],
-                      theme: ThemeData(fontFamily: 'SegoeUI',),
+                      theme: ThemeData(fontFamily: 'poppins',),
                       darkTheme: ThemeData.dark(),
                       themeMode: provider.themeMode,
                       home: const SplashScreen(),
