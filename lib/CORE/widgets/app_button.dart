@@ -30,7 +30,7 @@ class AppButton extends StatelessWidget {
 
     return SizedBox(
       width: double.infinity,
-      height: 4.3.h,
+      height: 6.6.h,
       child: Container(
         margin: margin,
         width: double.infinity,
