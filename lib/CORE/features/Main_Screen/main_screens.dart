@@ -1,0 +1,126 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:core/CORE/cubits/internet/internet_cubit.dart';
+import 'package:core/CORE/cubits/main/main_cubit.dart';
+import 'package:core/CORE/features/Home_Screen/view/home_screen.dart';
+import 'package:core/CORE/styles/colors.dart';
+import 'package:core/CORE/utills/safe_print.dart';
+import 'package:core/CORE/utills/svg.dart';
+import 'package:core/CORE/widgets/internet_disconnected_widget.dart';
+import 'package:core/generated/l10n.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class MainScreens extends StatefulWidget {
+  const MainScreens({Key? key}) : super(key: key);
+
+  @override
+  State<MainScreens> createState() => _MainScreensState();
+}
+
+class _MainScreensState extends State<MainScreens> {
+  MainCubit cubit = MainCubit();
+
+  int index = 0;
+  List<Widget> listScreens = [
+    HomeScreen(),
+  ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    checkConnectivity();
+  }
+
+  void checkConnectivity() async {
+    var result = await Connectivity().checkConnectivity();
+    safePrint(result.name);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => cubit,
+      child: BlocBuilder<MainCubit, MainState>(
+        builder: (context, state) {
+          return BlocBuilder<InternetCubit, InternetState>(
+            builder: (context, state) {
+              if (state is ConnectedState) {
+                return SafeArea(
+                  child: Scaffold(
+                    body: cubit.screens[cubit.index],
+                    bottomNavigationBar: bottomNavBar(),
+                  ),
+                );
+              } else if (state is NotConnectedState) {
+                InternetDisconnectedWidget();
+              }
+              return InternetDisconnectedWidget();
+            },
+          );
+        },
+      ),
+    );
+  }
+
+  Widget bottomNavBar() {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: Theme.of(context).brightness == Brightness.light
+          ? Colors. white70
+          : Colors.grey.shade800,
+      selectedItemColor: AppColors.primary,
+      unselectedItemColor: Theme.of(context).brightness == Brightness.light
+          ? Colors.black
+          : Colors.white,
+      onTap: (value) {
+        cubit.index = value;
+        setState(() {});
+      },
+      currentIndex: cubit.index,
+      items: [
+        BottomNavigationBarItem(
+            label: '{S().home}',
+            icon: AppSVG(
+              assetName: 'home',
+              color: cubit.index == 0
+                  ? AppColors.primary
+                  : Theme.of(context).brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+            )),
+        BottomNavigationBarItem(
+            label: '',
+            icon: AppSVG(
+              assetName: 'category',
+              color: cubit.index == 1
+                  ? AppColors.primary
+                  : Theme.of(context).brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+            )),
+        BottomNavigationBarItem(
+            label: '',
+            icon: AppSVG(
+              assetName: 'scanner',
+              color: cubit.index == 2
+                  ? AppColors.primary
+                  : Theme.of(context).brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+            )),
+        BottomNavigationBarItem(
+            label: '',
+            icon: AppSVG(
+              assetName: 'cart',
+              color: cubit.index == 3
+                  ? AppColors.primary
+                  : Theme.of(context).brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+            )),
+      ],
+    );
+  }
+}
