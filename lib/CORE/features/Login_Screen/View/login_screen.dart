@@ -1,3 +1,5 @@
+import 'package:core/CORE/features/Home_Screen/view/home_screen.dart';
+import 'package:core/CORE/features/Main_Screen/main_screens.dart';
 import 'package:core/CORE/features/Register_Screen/View/register_screen.dart';
 import 'package:core/CORE/styles/colors.dart';
 import 'package:core/CORE/utills/navigators.dart';
@@ -104,7 +106,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 5.h,
                 ),
                 AppButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    pushAndRemoveUntil(context, const MainScreens());
+                  },
                   label: "LOGIN",
                   sizeFont: 17.sp,
                   borderRadius: BorderRadius.all(
@@ -130,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     SizedBox(width: 1.5.w),
                     TextButton(onPressed: () {
-                      push(context, RegisterScreen());
+                      push(context, const RegisterScreen());
                     }, child:                     Text(
                       'Sign up',
                       style: TextStyle(

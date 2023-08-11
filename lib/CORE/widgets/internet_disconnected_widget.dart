@@ -19,7 +19,7 @@ class InternetDisconnectedWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AppBarMain(onPressed: ()=> exit(0), title: 'Connection Error',),
+            // AppBarMain(onPressed: ()=> exit(0), title: 'Connection Error',),
             SizedBox(height: 10.h,),
             AppSVG(assetName: "error"),
             SizedBox(height: 3.h,),

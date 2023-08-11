@@ -1,4 +1,5 @@
 import 'package:core/CORE/features/Home_Screen/view/home_screen.dart';
+import 'package:core/CORE/features/chat/view/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,10 +11,12 @@ class MainCubit extends Cubit<MainState> {
   int index = 0;
 
   List<Widget> screens = [
-  HomeScreen(),
-
-
-
+    HomeScreen(),
+    ChatScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
   ];
 
   void backToHome() {
@@ -26,10 +29,8 @@ class MainCubit extends Cubit<MainState> {
     emit(SwitchToAppointmentScreen());
   }
 
-
   void switchToProfileScreen() {
     index = 3;
     emit(SwitchToProfileScreen());
   }
-
 }

@@ -2,13 +2,13 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:core/CORE/cubits/internet/internet_cubit.dart';
 import 'package:core/CORE/cubits/main/main_cubit.dart';
 import 'package:core/CORE/features/Home_Screen/view/home_screen.dart';
-import 'package:core/CORE/styles/colors.dart';
+import 'package:core/CORE/features/chat/view/chat_screen.dart';
 import 'package:core/CORE/utills/safe_print.dart';
 import 'package:core/CORE/utills/svg.dart';
 import 'package:core/CORE/widgets/internet_disconnected_widget.dart';
-import 'package:core/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MainScreens extends StatefulWidget {
   const MainScreens({Key? key}) : super(key: key);
@@ -22,6 +22,11 @@ class _MainScreensState extends State<MainScreens> {
 
   int index = 0;
   List<Widget> listScreens = [
+    HomeScreen(),
+    ChatScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
     HomeScreen(),
   ];
 
@@ -50,6 +55,7 @@ class _MainScreensState extends State<MainScreens> {
                 return SafeArea(
                   child: Scaffold(
                     body: cubit.screens[cubit.index],
+
                     bottomNavigationBar: bottomNavBar(),
                   ),
                 );
@@ -65,12 +71,12 @@ class _MainScreensState extends State<MainScreens> {
   }
 
   Widget bottomNavBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
+    return BottomNavigationBar(showUnselectedLabels: false,showSelectedLabels: false,
+      type: BottomNavigationBarType.shifting,
       backgroundColor: Theme.of(context).brightness == Brightness.light
-          ? Colors. white70
+          ? Colors.white70
           : Colors.grey.shade800,
-      selectedItemColor: AppColors.primary,
+      selectedItemColor: Colors.blueAccent,
       unselectedItemColor: Theme.of(context).brightness == Brightness.light
           ? Colors.black
           : Colors.white,
@@ -81,44 +87,98 @@ class _MainScreensState extends State<MainScreens> {
       currentIndex: cubit.index,
       items: [
         BottomNavigationBarItem(
-            label: '{S().home}',
-            icon: AppSVG(
-              assetName: 'home',
-              color: cubit.index == 0
-                  ? AppColors.primary
-                  : Theme.of(context).brightness == Brightness.light
-                      ? Colors.black
-                      : Colors.white,
+            label: '',
+            icon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AppSVG(
+                  assetName: 'home',
+                  color: cubit.index == 0
+                      ? Colors.blueAccent
+                      : Theme.of(context).brightness == Brightness.light
+                          ? Colors.black
+                          : Colors.white,
+                ),
+              ],
             )),
         BottomNavigationBarItem(
             label: '',
-            icon: AppSVG(
-              assetName: 'category',
-              color: cubit.index == 1
-                  ? AppColors.primary
-                  : Theme.of(context).brightness == Brightness.light
-                      ? Colors.black
-                      : Colors.white,
+            icon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AppSVG(
+                  assetName: 'addFriend',
+                  width: 20.sp,
+                  color: cubit.index == 1
+                      ? Colors.blueAccent
+                      : Theme.of(context).brightness == Brightness.light
+                          ? Colors.black
+                          : Colors.white,
+                ),
+              ],
+            )),
+        BottomNavigationBarItem(
+          label: '', // Empty label
+          icon: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AppSVG(
+                assetName: 'reel',
+                color: cubit.index == 2
+                    ? Colors.blueAccent
+                    : Theme.of(context).brightness == Brightness.light
+                        ? Colors.black
+                        : Colors.white,
+              ),
+            ],
+          ),
+        ),
+        BottomNavigationBarItem(
+          label: '', // Empty label
+          icon: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AppSVG(
+                assetName: 'chat',
+                color: cubit.index == 3
+                    ? Colors.blueAccent
+                    : Theme.of(context).brightness == Brightness.light
+                        ? Colors.black
+                        : Colors.white,
+              ),
+            ],
+          ),
+        ),
+        BottomNavigationBarItem(
+            label: '',
+            icon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AppSVG(
+                  assetName: 'bell',
+                  color: cubit.index == 4
+                      ? Colors.blueAccent
+                      : Theme.of(context).brightness == Brightness.light
+                          ? Colors.black
+                          : Colors.white,
+                ),
+              ],
             )),
         BottomNavigationBarItem(
             label: '',
-            icon: AppSVG(
-              assetName: 'scanner',
-              color: cubit.index == 2
-                  ? AppColors.primary
-                  : Theme.of(context).brightness == Brightness.light
-                      ? Colors.black
-                      : Colors.white,
-            )),
-        BottomNavigationBarItem(
-            label: '',
-            icon: AppSVG(
-              assetName: 'cart',
-              color: cubit.index == 3
-                  ? AppColors.primary
-                  : Theme.of(context).brightness == Brightness.light
-                      ? Colors.black
-                      : Colors.white,
+            icon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 3.5.h,
+                  child: CircleAvatar(
+                    backgroundColor: cubit.index == 5
+                        ? Colors.blueAccent
+                        : Theme.of(context).brightness == Brightness.light
+                        ? Colors.black
+                        : Colors.white,backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQP7ARHenfnGXcxCIhmDxObHocM8FPbjyaBg&usqp=CAU"),
+                  ),
+                )              ],
             )),
       ],
     );
