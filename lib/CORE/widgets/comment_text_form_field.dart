@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 // ignore: must_be_immutable
-class AppTextField extends StatefulWidget {
-  AppTextField({
+class CommentAppTextField extends StatefulWidget {
+  CommentAppTextField({
     Key? key,
     required this.hint,
     required this.keyboardType,
@@ -48,28 +48,17 @@ class AppTextField extends StatefulWidget {
   late bool obscureText;
 
   @override
-  State<AppTextField> createState() => _AppTextFieldState();
+  State<CommentAppTextField> createState() => _CommentAppTextFieldState();
 }
 
-class _AppTextFieldState extends State<AppTextField> {
+class _CommentAppTextFieldState extends State<CommentAppTextField> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Theme.of(context).brightness == Brightness.light
-                ? Colors.grey.shade200
-        : Colors.black26,
-            blurStyle: BlurStyle.normal,
-            offset: const Offset(5, 1),
-            blurRadius: 14,
-          ),
-        ],
-      ),
-      child: Column(
-        children: [
-          SizedBox(height: 8.h,
+    return Column(
+      children: [
+        SizedBox(height: 8.h,
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 12.sp,vertical: 12.sp),
             child: TextFormField(
               validator: widget.validators,
               obscureText: widget.obscureText,
@@ -110,43 +99,17 @@ class _AppTextFieldState extends State<AppTextField> {
                   // Set enabled border color to white
                   borderRadius: BorderRadius.all(Radius.circular(17.sp)),
                 ),
-                prefixIcon:widget.prefixIcon,
-                suffixIcon: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    Visibility(
-                      visible: widget.isImage,
-                      child: InkWell(
-                        onTap: widget.uploadMedicalId,
-                        child: AppSVG(assetName: "upload"),
-                      ),
-                    ),
-                    Visibility(
-                      visible: widget.isPassword,
-                      child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            widget.obscureText = !widget.obscureText;
-                          });
-                        },
-                        child: Icon(
-                          widget.obscureText ? Icons.visibility_off : Icons.visibility,
-                          color: Theme.of(context).brightness == Brightness.light ?Colors.black:Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                prefixIcon:widget.prefixIcon, suffixIcon: Icon(Icons.send),
                 hintText: widget.hint,
 
               ),
             ),
           ),
-          SizedBox(
-            height: 1.h,
-          )
-        ],
-      ),
+        ),
+        SizedBox(
+          height: 1.h,
+        )
+      ],
     );
   }
 }

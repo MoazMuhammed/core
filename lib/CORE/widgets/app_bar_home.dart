@@ -51,7 +51,7 @@ class _AppBarMainState extends State<AppBarMain> {
                 decoration: BoxDecoration(color: Theme.of(context).brightness == Brightness.light
                     ? Colors.grey.shade300
                     : AppColors.greyColor,borderRadius: BorderRadius.circular(18.sp)),
-                child: AppSVG(assetName: widget.firstIconName, width: 8.w,color: Theme.of(context).brightness == Brightness.light
+                child: AppSVG(assetName: widget.firstIconName, width: 7.w,color: Theme.of(context).brightness == Brightness.light
                     ? AppColors.black
                     : Colors.white,),
               ),
@@ -65,7 +65,7 @@ class _AppBarMainState extends State<AppBarMain> {
                 decoration: BoxDecoration(color: Theme.of(context).brightness == Brightness.light
                     ? Colors.grey.shade300
                     : AppColors.greyColor,borderRadius: BorderRadius.circular(18.sp)),
-                child: AppSVG(assetName: widget.secondIconName, width: 8.w,color: Theme.of(context).brightness == Brightness.light
+                child: AppSVG(assetName: widget.secondIconName, width: 7.w,color: Theme.of(context).brightness == Brightness.light
                     ? AppColors.black
                     : Colors.white,),
               ),

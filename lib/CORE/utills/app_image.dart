@@ -21,7 +21,7 @@ class AppImage extends StatelessWidget {
     return ClipRRect(
       borderRadius: borderRadius,
       child: CachedNetworkImage(
-        fit: BoxFit.scaleDown,
+        fit: BoxFit.fill,
         width: width,
         height: height,
         imageUrl: imageUrl,
@@ -30,7 +30,7 @@ class AppImage extends StatelessWidget {
 
             Image.asset(
             "assets/images/loading.gif",
-            fit: BoxFit. fill,
+            fit: BoxFit. scaleDown,
           );
 
 

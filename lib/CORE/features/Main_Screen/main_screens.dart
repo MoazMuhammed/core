@@ -94,7 +94,7 @@ class _MainScreensState extends State<MainScreens> {
                 AppSVG(
                   assetName: 'home',
                   color: cubit.index == 0
-                      ? Colors.blueAccent
+                      ? Colors.green
                       : Theme.of(context).brightness == Brightness.light
                           ? Colors.black
                           : Colors.white,
@@ -110,7 +110,7 @@ class _MainScreensState extends State<MainScreens> {
                   assetName: 'addFriend',
                   width: 20.sp,
                   color: cubit.index == 1
-                      ? Colors.blueAccent
+                      ? Colors.green
                       : Theme.of(context).brightness == Brightness.light
                           ? Colors.black
                           : Colors.white,
@@ -125,7 +125,7 @@ class _MainScreensState extends State<MainScreens> {
               AppSVG(
                 assetName: 'reel',
                 color: cubit.index == 2
-                    ? Colors.blueAccent
+                    ? Colors.green
                     : Theme.of(context).brightness == Brightness.light
                         ? Colors.black
                         : Colors.white,
@@ -141,7 +141,7 @@ class _MainScreensState extends State<MainScreens> {
               AppSVG(
                 assetName: 'chat',
                 color: cubit.index == 3
-                    ? Colors.blueAccent
+                    ? Colors.green
                     : Theme.of(context).brightness == Brightness.light
                         ? Colors.black
                         : Colors.white,
@@ -157,7 +157,7 @@ class _MainScreensState extends State<MainScreens> {
                 AppSVG(
                   assetName: 'bell',
                   color: cubit.index == 4
-                      ? Colors.blueAccent
+                      ? Colors.green
                       : Theme.of(context).brightness == Brightness.light
                           ? Colors.black
                           : Colors.white,
@@ -173,7 +173,7 @@ class _MainScreensState extends State<MainScreens> {
                   height: 3.5.h,
                   child: CircleAvatar(
                     backgroundColor: cubit.index == 5
-                        ? Colors.blueAccent
+                        ? Colors.green
                         : Theme.of(context).brightness == Brightness.light
                         ? Colors.black
                         : Colors.white,backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQP7ARHenfnGXcxCIhmDxObHocM8FPbjyaBg&usqp=CAU"),

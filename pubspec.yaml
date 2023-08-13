@@ -54,6 +54,8 @@ dependencies:
     sdk: flutter
   flutter_phoenix: ^1.1.1
   app_settings: ^5.0.0
+  story: ^1.1.0
+  readmore: ^2.2.0
 
 dev_dependencies:
   flutter_test:
