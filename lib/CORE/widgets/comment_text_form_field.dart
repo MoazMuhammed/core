@@ -56,59 +56,60 @@ class _CommentAppTextFieldState extends State<CommentAppTextField> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 8.h,
-          child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 12.sp,vertical: 12.sp),
-            child: TextFormField(
-              validator: widget.validators,
-              obscureText: widget.obscureText,
-              controller: widget.controller,style: TextStyle(
-                fontSize: 14.sp,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.white,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'poppins'),
-              enabled: widget.enable,
-              keyboardType: widget.textInputType,
-              textInputAction: widget.textInputAction,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Theme.of(context).brightness == Brightness.light
-                    ? Colors.white
-                    : Colors.black26,
-                // Set fill color to gray
-                border: OutlineInputBorder(
-                  borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
-                      ? Colors.white
-                      : Colors.black26,),
-                  // Set border color to white
-                  borderRadius: BorderRadius.all(Radius.circular(17.sp)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
-                      ? Colors.white
-                      : Colors.black26),
-                  // Set focused border color to white
-                  borderRadius: BorderRadius.all(Radius.circular(17.sp)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
-                      ? Colors.white
-                      : Colors.black26),
-                  // Set enabled border color to white
-                  borderRadius: BorderRadius.all(Radius.circular(17.sp)),
-                ),
-                prefixIcon:widget.prefixIcon, suffixIcon: Icon(Icons.send),
-                hintText: widget.hint,
 
+        SizedBox(height: 1.h),
+        SizedBox(height: 7.h,
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 12.sp,vertical: 8.sp),
+            child: Center(
+              child: TextFormField(
+                validator: widget.validators,
+                obscureText: widget.obscureText,
+                controller: widget.controller,style: TextStyle(
+                  fontSize: 14.sp,
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? Colors.black
+                      : Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'poppins'),
+                enabled: widget.enable,
+                keyboardType: widget.textInputType,
+                textInputAction: widget.textInputAction,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Theme.of(context).brightness == Brightness.light
+                      ? Colors.white
+                      : Colors.black26,
+                  // Set fill color to gray
+                  border: OutlineInputBorder(
+                    borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
+                        ? Colors.white
+                        : Colors.black26,),
+                    // Set border color to white
+                    borderRadius: BorderRadius.all(Radius.circular(17.sp)),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
+                        ? Colors.white
+                        : Colors.black26),
+                    // Set focused border color to white
+                    borderRadius: BorderRadius.all(Radius.circular(17.sp)),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
+                        ? Colors.white
+                        : Colors.black26),
+                    // Set enabled border color to white
+                    borderRadius: BorderRadius.all(Radius.circular(17.sp)),
+                  ),
+                  prefixIcon:widget.prefixIcon, suffixIcon: Icon(Icons.send),
+                  hintText: widget.hint,
+
+                ),
               ),
             ),
           ),
         ),
-        SizedBox(
-          height: 1.h,
-        )
       ],
     );
   }

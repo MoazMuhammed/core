@@ -161,6 +161,22 @@ class _CommentBottomSheetState extends State<CommentBottomSheet> {
                           ],
                         ),
                       ),
+                      Row(children: [
+                       Container(
+
+                         decoration: BoxDecoration(border: Border.all(color: Colors.grey,width: 0.1.w,)),
+                       width: 10.w,
+                       ),
+                        SizedBox(width: 5.w,),
+                        Center(
+                          child: TextButton(onPressed: () {
+
+                          }, child: Text("View 1 more Reply",style: TextStyle(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green),),),
+                        )
+                      ],),
 
                       SizedBox(height: 20.sp,)
 
@@ -169,14 +185,12 @@ class _CommentBottomSheetState extends State<CommentBottomSheet> {
                 ),            ],),itemCount: 7,),
           ),
 
-          Center(
-            child: Row(
-              children: [
-                Expanded(
-                  child: CommentAppTextField(hint: "Comment as Moaz Muhammed", keyboardType: TextInputType.text, controller: _commentController, isPassword:  false, textInputAction: TextInputAction.done, textInputType: TextInputType.text,),
-                ),
-              ],
-            ),
+          Row(
+            children: [
+              Expanded(
+                child: CommentAppTextField(hint: "Comment as Moaz Muhammed", keyboardType: TextInputType.text, controller: _commentController, isPassword:  false, textInputAction: TextInputAction.done, textInputType: TextInputType.text,),
+              ),
+            ],
           ),
 
           // ElevatedButton(
