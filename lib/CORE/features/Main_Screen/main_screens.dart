@@ -23,9 +23,9 @@ class _MainScreensState extends State<MainScreens> {
   int index = 0;
   List<Widget> listScreens = [
     HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
     ChatScreen(),
-    HomeScreen(),
-    HomeScreen(),
     HomeScreen(),
     HomeScreen(),
   ];

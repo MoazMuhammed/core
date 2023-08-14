@@ -12,11 +12,13 @@ class MainCubit extends Cubit<MainState> {
 
   List<Widget> screens = [
     HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
     ChatScreen(),
     HomeScreen(),
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+
+
   ];
 
   void backToHome() {
