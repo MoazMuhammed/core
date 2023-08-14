@@ -71,12 +71,16 @@ class _MainScreensState extends State<MainScreens> {
   }
 
   Widget bottomNavBar() {
-    return BottomNavigationBar(showUnselectedLabels: false,showSelectedLabels: false,
+    return BottomNavigationBar(
+
+      showUnselectedLabels: true,showSelectedLabels: true,
       type: BottomNavigationBarType.shifting,
+      unselectedLabelStyle: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontFamily: 'poppins',fontSize: 12.sp),
+      selectedLabelStyle: TextStyle(color: Colors.green,fontWeight: FontWeight.bold,fontFamily: 'poppins',fontSize: 12.sp),
       backgroundColor: Theme.of(context).brightness == Brightness.light
           ? Colors.white70
           : Colors.grey.shade800,
-      selectedItemColor: Colors.blueAccent,
+      selectedItemColor: Colors.green,mouseCursor: MaterialStateMouseCursor.clickable,
       unselectedItemColor: Theme.of(context).brightness == Brightness.light
           ? Colors.black
           : Colors.white,
@@ -87,7 +91,7 @@ class _MainScreensState extends State<MainScreens> {
       currentIndex: cubit.index,
       items: [
         BottomNavigationBarItem(
-            label: '',
+            label: 'Home',
             icon: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -102,7 +106,7 @@ class _MainScreensState extends State<MainScreens> {
               ],
             )),
         BottomNavigationBarItem(
-            label: '',
+            label: 'Friends',
             icon: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -118,7 +122,7 @@ class _MainScreensState extends State<MainScreens> {
               ],
             )),
         BottomNavigationBarItem(
-          label: '', // Empty label
+          label: 'Reels', // Empty label
           icon: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -134,7 +138,7 @@ class _MainScreensState extends State<MainScreens> {
           ),
         ),
         BottomNavigationBarItem(
-          label: '', // Empty label
+          label: 'Chat', // Empty label
           icon: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -150,7 +154,7 @@ class _MainScreensState extends State<MainScreens> {
           ),
         ),
         BottomNavigationBarItem(
-            label: '',
+            label: 'Notify',
             icon: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -165,7 +169,7 @@ class _MainScreensState extends State<MainScreens> {
               ],
             )),
         BottomNavigationBarItem(
-            label: '',
+            label: 'Profile',
             icon: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

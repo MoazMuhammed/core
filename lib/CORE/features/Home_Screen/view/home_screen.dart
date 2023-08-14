@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ? AppColors.backGround
       : Colors.black26,
       body: Padding(
-    padding: EdgeInsets.symmetric(horizontal: 16.sp, vertical: 18.sp),
+    padding: EdgeInsets.symmetric(horizontal: 14.sp),
     child: Column(
       children: [
         AppBarMain(
@@ -158,10 +158,11 @@ class _HomeScreenState extends State<HomeScreen> {
             );
             }, postSeenClickAction: () {  },
           ),itemCount: 7,),
-        )
+        ),
       ],
     ),
       ),
+
     );
   }
 }
