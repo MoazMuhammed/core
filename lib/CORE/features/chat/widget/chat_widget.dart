@@ -91,7 +91,7 @@ class _MainChatWidgetState extends State<MainChatWidget> {
                 assetName: 'arrow',
                 color: Theme.of(context).brightness == Brightness.light
                     ? Colors.black
-                    : Colors.white60,
+                    : Colors.black,
                 height: 3.h,
               ),
             ],

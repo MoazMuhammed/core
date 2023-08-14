@@ -20,7 +20,7 @@ class _PostActionWidgetState extends State<PostActionWidget> {
         children: [
           AppSVG(
             assetName: widget.postLIconAction,
-            height: 2.h,
+            height: 2.5.h,
             color: Theme.of(context).brightness == Brightness.light
                 ? Colors.black
                 : Colors.white,

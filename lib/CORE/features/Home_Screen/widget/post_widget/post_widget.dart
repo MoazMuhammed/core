@@ -67,7 +67,7 @@ class _PostWidgetState extends State<PostWidget> {
                           widget.postDate,
                           style: TextStyle(
                               color: Colors.grey,
-                              fontSize: 13.sp,
+                              fontSize: 13.5.sp,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'poppins'),
                         ),
@@ -90,7 +90,7 @@ class _PostWidgetState extends State<PostWidget> {
                         imageUrl:
                         widget.postImage,
                         width: double.infinity,
-                        height: 20.h,
+                        height: 22.h,
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(16.sp),
                             bottomRight: Radius.circular(16.sp),
@@ -128,8 +128,8 @@ class _PostWidgetState extends State<PostWidget> {
                         widget.postTitle,
                         trimLines: 2,
                         style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w500,
                             fontFamily: 'poppins'),
                         trimMode: TrimMode.Line,
                         trimCollapsedText: 'Show more',

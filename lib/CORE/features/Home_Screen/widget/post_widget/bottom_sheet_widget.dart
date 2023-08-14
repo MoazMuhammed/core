@@ -61,7 +61,7 @@ class _CommentBottomSheetState extends State<CommentBottomSheet> {
                             Text(
                               "Moaz Muhammed",
                               style: TextStyle(
-                                  fontSize: 14.sp,
+                                  fontSize: 15.sp,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'poppins'),
                             ),
@@ -69,7 +69,7 @@ class _CommentBottomSheetState extends State<CommentBottomSheet> {
                             Text(
                               "1h",
                               style: TextStyle(
-                                  fontSize: 12.sp,color: Colors.grey,
+                                  fontSize: 13.sp,color: Colors.grey,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'poppins'),
                             ),
@@ -92,7 +92,7 @@ class _CommentBottomSheetState extends State<CommentBottomSheet> {
                             'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
                             trimLines: 2,
                             style: TextStyle(
-                                fontSize: 14.sp,
+                                fontSize: 15.sp,
                                 fontWeight: FontWeight.w300,
                                 fontFamily: 'poppins'),
                             trimMode: TrimMode.Line,
@@ -117,7 +117,7 @@ class _CommentBottomSheetState extends State<CommentBottomSheet> {
                                 children: [
                                   AppSVG(
                                     assetName: 'heart',
-                                    height: 2.h,
+                                    height: 2.5.h,
                                     color: Theme.of(context).brightness ==
                                             Brightness.light
                                         ? Colors.black
@@ -140,7 +140,7 @@ class _CommentBottomSheetState extends State<CommentBottomSheet> {
                                 children: [
                                   AppSVG(
                                     assetName: 'eye',
-                                    height: 2.h,
+                                    height: 2.5.h,
                                     color: Theme.of(context).brightness ==
                                             Brightness.light
                                         ? Colors.black
@@ -167,7 +167,7 @@ class _CommentBottomSheetState extends State<CommentBottomSheet> {
                                   children: [
                                     AppSVG(
                                       assetName: 'reply',
-                                      height: 2.h,
+                                      height: 2.5.h,
                                       color: Theme.of(context).brightness ==
                                           Brightness.light
                                           ? Colors.black
@@ -175,7 +175,7 @@ class _CommentBottomSheetState extends State<CommentBottomSheet> {
                                     ),
                                     SizedBox(width: 1.5.w,),
                                     Text("Add Reply",style: TextStyle(
-                                        fontSize: 12.5.sp,
+                                        fontSize: 13.sp,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.grey),)
                                   ],
@@ -225,135 +225,138 @@ class _CommentBottomSheetState extends State<CommentBottomSheet> {
                                   SizedBox(
                                     height: 20.h,
                                     width: double.infinity,
-                                    child: ListView.builder( itemBuilder: (context, index) => Row(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        const CircleAvatar(
-                                            backgroundImage: NetworkImage(
-                                                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQP7ARHenfnGXcxCIhmDxObHocM8FPbjyaBg&usqp=CAU')),
-                                        Expanded(
-                                          child: Column(
-                                            children: [
-                                              SizedBox(height: 1.5.h,),
-                                              Row(
-                                                children: [
-                                                  SizedBox(
-                                                    width: 2.w,
-                                                  ),
-                                                  SizedBox(
-                                                    height: 0.5.h,
-                                                  ),
-                                                  Text(
-                                                    "Moaz Muhammed",
-                                                    style: TextStyle(
-                                                        fontSize: 14.sp,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontFamily: 'poppins'),
-                                                  ),
-                                                  const Spacer(),
-                                                  Text(
-                                                    "1h",
-                                                    style: TextStyle(
-                                                        fontSize: 12.sp,color: Colors.grey,
-                                                        fontWeight: FontWeight.bold,
-                                                        fontFamily: 'poppins'),
-                                                  ),
-                                                  SizedBox(
-                                                    width: 2.w,
-                                                  ),
-                                                  AppSVG(
-                                                    assetName: 'menu',height: 2.5.h,
-                                                    color: Theme.of(context).brightness ==
-                                                        Brightness.light
-                                                        ? Colors.black
-                                                        : Colors.white,
-                                                  ),
-                                                ],
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 10.sp, vertical: 0.sp),
-                                                child: ReadMoreText(
-                                                  'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
-                                                  trimLines: 2,
-                                                  style: TextStyle(
-                                                      fontSize: 14.sp,
-                                                      fontWeight: FontWeight.w300,
-                                                      fontFamily: 'poppins'),
-                                                  trimMode: TrimMode.Line,
-                                                  trimCollapsedText: 'Show more',
-                                                  trimExpandedText: 'Show less',
-                                                  lessStyle: TextStyle(
-                                                      fontSize: 14.sp,
-                                                      fontWeight: FontWeight.bold,
-                                                      color: Colors.green),
-                                                  moreStyle: TextStyle(
-                                                      fontSize: 14.sp,
-                                                      fontWeight: FontWeight.bold,
-                                                      color: Colors.green),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 10.sp, vertical: 6.sp),
-                                                child: Row(
+                                    child: ListView.builder( itemBuilder: (context, index) => Padding(
+                                      padding:  EdgeInsets.symmetric(horizontal: 10.sp,vertical: 10.sp),
+                                      child: Row(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          const CircleAvatar(
+                                              backgroundImage: NetworkImage(
+                                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQP7ARHenfnGXcxCIhmDxObHocM8FPbjyaBg&usqp=CAU')),
+                                          Expanded(
+                                            child: Column(
+                                              children: [
+                                                SizedBox(height: 1.5.h,),
+                                                Row(
                                                   children: [
-                                                    Row(
-                                                      children: [
-                                                        AppSVG(
-                                                          assetName: 'heart',
-                                                          height: 2.h,
-                                                          color: Theme.of(context).brightness ==
-                                                              Brightness.light
-                                                              ? Colors.black
-                                                              : Colors.white,
-                                                        ),
-                                                        SizedBox(
-                                                          width: 1.w,
-                                                        ),
-                                                        Text(
-                                                          '20',
-                                                          style: TextStyle(
-                                                              fontSize: 14.sp,
-                                                              fontWeight: FontWeight.bold,
-                                                              fontFamily: 'poppins'),
-                                                        )
-                                                      ],
+                                                    SizedBox(
+                                                      width: 2.w,
                                                     ),
-                                                    SizedBox(width: 10.w),
-                                                    Row(
-                                                      children: [
-                                                        AppSVG(
-                                                          assetName: 'eye',
-                                                          height: 2.h,
-                                                          color: Theme.of(context).brightness ==
-                                                              Brightness.light
-                                                              ? Colors.black
-                                                              : Colors.white,
-                                                        ),
-                                                        SizedBox(
-                                                          width: 1.w,
-                                                        ),
-                                                        Text(
-                                                          "150",
-                                                          style: TextStyle(
-                                                              fontSize: 14.sp,
-                                                              fontWeight: FontWeight.bold,
-                                                              fontFamily: 'poppins'),
-                                                        )
-                                                      ],
+                                                    SizedBox(
+                                                      height: 0.5.h,
+                                                    ),
+                                                    Text(
+                                                      "Moaz Muhammed",
+                                                      style: TextStyle(
+                                                          fontSize: 15.sp,
+                                                          fontWeight: FontWeight.bold,
+                                                          fontFamily: 'poppins'),
+                                                    ),
+                                                    const Spacer(),
+                                                    Text(
+                                                      "1h",
+                                                      style: TextStyle(
+                                                          fontSize: 13.sp,color: Colors.grey,
+                                                          fontWeight: FontWeight.bold,
+                                                          fontFamily: 'poppins'),
+                                                    ),
+                                                    SizedBox(
+                                                      width: 2.w,
+                                                    ),
+                                                    AppSVG(
+                                                      assetName: 'menu',height: 2.5.h,
+                                                      color: Theme.of(context).brightness ==
+                                                          Brightness.light
+                                                          ? Colors.black
+                                                          : Colors.white,
                                                     ),
                                                   ],
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                height: 20.sp,
-                                              )
-                                            ],
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 10.sp, vertical: 0.sp),
+                                                  child: ReadMoreText(
+                                                    'Flutter is Google’s mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.',
+                                                    trimLines: 2,
+                                                    style: TextStyle(
+                                                        fontSize: 15.sp,
+                                                        fontWeight: FontWeight.w300,
+                                                        fontFamily: 'poppins'),
+                                                    trimMode: TrimMode.Line,
+                                                    trimCollapsedText: 'Show more',
+                                                    trimExpandedText: 'Show less',
+                                                    lessStyle: TextStyle(
+                                                        fontSize: 14.sp,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: Colors.green),
+                                                    moreStyle: TextStyle(
+                                                        fontSize: 14.sp,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: Colors.green),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 10.sp, vertical: 6.sp),
+                                                  child: Row(
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          AppSVG(
+                                                            assetName: 'heart',
+                                                            height: 2.5.h,
+                                                            color: Theme.of(context).brightness ==
+                                                                Brightness.light
+                                                                ? Colors.black
+                                                                : Colors.white,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 1.w,
+                                                          ),
+                                                          Text(
+                                                            '20',
+                                                            style: TextStyle(
+                                                                fontSize: 14.sp,
+                                                                fontWeight: FontWeight.bold,
+                                                                fontFamily: 'poppins'),
+                                                          )
+                                                        ],
+                                                      ),
+                                                      SizedBox(width: 10.w),
+                                                      Row(
+                                                        children: [
+                                                          AppSVG(
+                                                            assetName: 'eye',
+                                                            height: 2.5.h,
+                                                            color: Theme.of(context).brightness ==
+                                                                Brightness.light
+                                                                ? Colors.black
+                                                                : Colors.white,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 1.w,
+                                                          ),
+                                                          Text(
+                                                            "150",
+                                                            style: TextStyle(
+                                                                fontSize: 14.sp,
+                                                                fontWeight: FontWeight.bold,
+                                                                fontFamily: 'poppins'),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 20.sp,
+                                                )
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ), itemCount: 4,
                                     ),
                                   ),
