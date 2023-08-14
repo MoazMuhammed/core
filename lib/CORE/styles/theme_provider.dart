@@ -6,7 +6,7 @@ class ThemeProvider extends ChangeNotifier {
   int currentTheme = 0;
 
   ThemeMode get themeMode {
-    if (currentTheme == 0) {
+    if (currentTheme == 1) {
       return ThemeMode.dark;
     } else {
       return ThemeMode.light;

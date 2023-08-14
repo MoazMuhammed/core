@@ -30,7 +30,7 @@ class _PostWidgetState extends State<PostWidget> {
       padding: EdgeInsets.symmetric(horizontal: 15.sp,vertical: 15.sp),
       decoration: BoxDecoration(color: Theme.of(context).brightness == Brightness.light
           ? Colors.white70
-          : Colors.grey.withOpacity( 0.2.sp),borderRadius: BorderRadius.circular(14.sp)),
+          : Colors.grey.withOpacity( 0.4.sp),borderRadius: BorderRadius.circular(14.sp)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -43,35 +43,39 @@ class _PostWidgetState extends State<PostWidget> {
               Expanded(
                 child: Column(
                   children: [
+                    SizedBox(
+                      height: 0.7.h,
+                    ),
                     Row(
                       children: [
                         SizedBox(
                           width: 2.w,
                         ),
-                        Column(
-                          children: [
-                            SizedBox(
-                              height: 0.5.h,
-                            ),
+                        SizedBox(
+                          height: 0.5.h,
+                        ),
 
-                            Text(
-                              widget.userName,
-                              style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'poppins'),
-                            ),
-                            Text(
-                              widget.postDate,
-                              style: TextStyle(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'poppins'),
-                            ),
-                          ],
+                        Text(
+                          widget.userName,
+                          style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'poppins'),
                         ),
                         const Spacer(),
-                         AppSVG(
+                        Text(
+                          widget.postDate,
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'poppins'),
+                        ),
+                        SizedBox(
+                          width: 0.5.h,
+                        ),
+
+                        AppSVG(
                           assetName: 'menu',
                           color: Theme.of(context).brightness == Brightness.light
                               ? Colors.black
@@ -86,11 +90,12 @@ class _PostWidgetState extends State<PostWidget> {
                         imageUrl:
                         widget.postImage,
                         width: double.infinity,
-                        height: 18.h,
+                        height: 20.h,
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(16.sp),
                             bottomRight: Radius.circular(16.sp),
-                            topRight: Radius.circular(16.sp))),
+                            topRight: Radius.circular(16.sp),
+                        topLeft:Radius.circular(8.sp) )),
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: 10.sp, vertical: 10.sp),
@@ -108,7 +113,7 @@ class _PostWidgetState extends State<PostWidget> {
                           const Spacer(),
                           AppSVG(
                             assetName: 'save',
-                            height: 2.h,
+                            height: 2.5.h,
                             color: Theme.of(context).brightness == Brightness.light
                                 ? Colors.black
                                 : Colors.white,

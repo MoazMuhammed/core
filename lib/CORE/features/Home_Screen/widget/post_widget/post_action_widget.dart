@@ -26,7 +26,7 @@ class _PostActionWidgetState extends State<PostActionWidget> {
                 : Colors.white,
           ),
           SizedBox(
-            width: 1.w,
+            width: 2.5.w,
           ),
           Text(
             widget.postLAction,

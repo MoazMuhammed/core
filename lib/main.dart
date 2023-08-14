@@ -8,6 +8,7 @@ import 'package:core/CORE/shared_preferences/my_shared.dart';
 import 'package:core/CORE/styles/theme_provider.dart';
 import 'package:core/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -54,7 +55,11 @@ class MyApp extends StatelessWidget {
                         GlobalCupertinoLocalizations.delegate,
                         GlobalWidgetsLocalizations.delegate,
                       ],
-                      theme: ThemeData(fontFamily: 'poppins',),
+                      theme: ThemeData(fontFamily: 'poppins',
+                      appBarTheme:AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle(
+                        statusBarColor: Colors.transparent,
+                        statusBarIconBrightness: Brightness.light,
+                      ),) ),
                       darkTheme: ThemeData.dark(),
                       themeMode: provider.themeMode,
                       home: const SplashScreen(),
