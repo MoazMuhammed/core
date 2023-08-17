@@ -1,3 +1,4 @@
+import 'package:core/CORE/features/Home_Screen/widget/post_widget/popUpMenu_widget.dart';
 import 'package:core/CORE/features/Home_Screen/widget/post_widget/post_action_widget.dart';
 import 'package:core/CORE/utills/app_image.dart';
 import 'package:core/CORE/utills/svg.dart';
@@ -24,13 +25,65 @@ class PostWidget extends StatefulWidget {
 }
 
 class _PostWidgetState extends State<PostWidget> {
+  void _showImageDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Dialog(
+          insetAnimationCurve:  Curves.bounceInOut,
+          child: Stack(
+            alignment:  Alignment.bottomCenter,
+            children: [
+              Image.network(
+                widget.postImage,
+                fit: BoxFit.contain,
+              ),
+              Container(
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(14.sp),color: Colors.black45),padding: EdgeInsets.symmetric(vertical: 12.sp,horizontal: 12.sp),
+                margin:EdgeInsets.symmetric(
+                  horizontal: 10.sp, vertical: 8.sp),
+
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 5.sp, vertical: 0.sp),
+                  child: Container(
+                    child: ReadMoreText(
+                      widget.postTitle,
+                      trimLines: 2,
+                      style: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'poppins'),
+                      trimMode: TrimMode.Line,
+                      trimCollapsedText: 'Show more',
+                      trimExpandedText: 'Show less',
+                      lessStyle: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green),
+                      moreStyle: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.green),
+                    ),
+                  ),
+                ),
+              ),
+
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(margin: EdgeInsets.symmetric(vertical: 8.sp),
       padding: EdgeInsets.symmetric(horizontal: 15.sp,vertical: 15.sp),
       decoration: BoxDecoration(color: Theme.of(context).brightness == Brightness.light
           ? Colors.white70
-          : Colors.grey.withOpacity( 0.4.sp),borderRadius: BorderRadius.circular(14.sp)),
+          : Colors.grey.withOpacity( 0.7.sp),borderRadius: BorderRadius.circular(14.sp)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -74,28 +127,28 @@ class _PostWidgetState extends State<PostWidget> {
                         SizedBox(
                           width: 0.5.h,
                         ),
-
-                        AppSVG(
-                          assetName: 'menu',
-                          color: Theme.of(context).brightness == Brightness.light
-                              ? Colors.black
-                              : Colors.white,
-                        )
+                        const PopUpMenuWidget(),
                       ],
                     ),
                     SizedBox(
                       height: 1.0.h,
                     ),
-                    AppImage(
-                        imageUrl:
-                        widget.postImage,
-                        width: double.infinity,
-                        height: 22.h,
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(16.sp),
-                            bottomRight: Radius.circular(16.sp),
-                            topRight: Radius.circular(16.sp),
-                        topLeft:Radius.circular(8.sp) )),
+                    GestureDetector(
+                      onLongPress: () {
+                        _showImageDialog(context); // Show the image dialog
+                      },                      child: InteractiveViewer(
+                        child: AppImage(
+                            imageUrl:
+                            widget.postImage,
+                            width: double.infinity,
+                            height: 22.h,
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(16.sp),
+                                bottomRight: Radius.circular(16.sp),
+                                topRight: Radius.circular(16.sp),
+                            topLeft:Radius.circular(8.sp) )),
+                      ),
+                    ),
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: 10.sp, vertical: 10.sp),
@@ -155,3 +208,5 @@ class _PostWidgetState extends State<PostWidget> {
     ;
   }
 }
+
+

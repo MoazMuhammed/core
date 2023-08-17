@@ -56,10 +56,10 @@ class MyApp extends StatelessWidget {
                         GlobalWidgetsLocalizations.delegate,
                       ],
                       theme: ThemeData(fontFamily: 'poppins',
-                      appBarTheme:AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle(
-                        statusBarColor: Colors.transparent,
-                        statusBarIconBrightness: Brightness.light,
-                      ),) ),
+                                     appBarTheme: AppBarTheme(
+                        systemOverlayStyle: SystemUiOverlayStyle.light,
+                      ),
+                          ) ,
                       darkTheme: ThemeData.dark(),
                       themeMode: provider.themeMode,
                       home: const SplashScreen(),

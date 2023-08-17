@@ -54,98 +54,102 @@ class AppTextField extends StatefulWidget {
 class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Theme.of(context).brightness == Brightness.light
-                ? Colors.grey.shade200
-        : Colors.black26,
-            blurStyle: BlurStyle.normal,
-            offset: const Offset(5, 1),
-            blurRadius: 14,
-          ),
-        ],
-      ),
-      child: Column(
-        children: [
-          SizedBox(height: 8.h,
-            child: TextFormField(
-              validator: widget.validators,
-              obscureText: widget.obscureText,
-              controller: widget.controller,style: TextStyle(
-                fontSize: 14.sp,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.white,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'poppins'),
-              enabled: widget.enable,
-              keyboardType: widget.textInputType,
-              textInputAction: widget.textInputAction,
-              decoration: InputDecoration(
-                filled: true,
-                fillColor: Theme.of(context).brightness == Brightness.light
-                    ? Colors.white
-                    : Colors.black26,
-                // Set fill color to gray
-                border: OutlineInputBorder(
-                  borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
-                      ? Colors.white
-                      : Colors.black26,),
-                  // Set border color to white
-                  borderRadius: BorderRadius.all(Radius.circular(17.sp)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
-                      ? Colors.white
-                      : Colors.black26),
-                  // Set focused border color to white
-                  borderRadius: BorderRadius.all(Radius.circular(17.sp)),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
-                      ? Colors.white
-                      : Colors.black26),
-                  // Set enabled border color to white
-                  borderRadius: BorderRadius.all(Radius.circular(17.sp)),
-                ),
-                prefixIcon:widget.prefixIcon,
-                suffixIcon: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    Visibility(
-                      visible: widget.isImage,
-                      child: InkWell(
-                        onTap: widget.uploadMedicalId,
-                        child: AppSVG(assetName: "upload"),
-                      ),
-                    ),
-                    Visibility(
-                      visible: widget.isPassword,
-                      child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            widget.obscureText = !widget.obscureText;
-                          });
-                        },
-                        child: Icon(
-                          widget.obscureText ? Icons.visibility_off : Icons.visibility,
-                          color: Theme.of(context).brightness == Brightness.light ?Colors.black:Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                hintText: widget.hint,
-
-              ),
+    return SafeArea(
+      child: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Theme.of(context).brightness == Brightness.light
+                  ? Colors.grey.shade200
+          : Colors.black26,
+              blurStyle: BlurStyle.normal,
+              offset: const Offset(5, 1),
+              blurRadius: 14,
             ),
+          ],
+        ),
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(height: 10.h,
+                child: TextFormField(
+                  validator: widget.validators,
+                  obscureText: widget.obscureText,
+                  controller: widget.controller,style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? Colors.black
+                        : Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'poppins'),
+                  enabled: widget.enable,
+                  keyboardType: widget.textInputType,
+                  textInputAction: widget.textInputAction,
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Theme.of(context).brightness == Brightness.light
+                        ? Colors.white
+                        : Colors.black26,
+                    // Set fill color to gray
+                    border: OutlineInputBorder(
+                      borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
+                          ? Colors.white
+                          : Colors.black26,),
+                      // Set border color to white
+                      borderRadius: BorderRadius.all(Radius.circular(17.sp)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
+                          ? Colors.white
+                          : Colors.black26),
+                      // Set focused border color to white
+                      borderRadius: BorderRadius.all(Radius.circular(17.sp)),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide:  BorderSide(color: Theme.of(context).brightness == Brightness.light
+                          ? Colors.white
+                          : Colors.black26),
+                      // Set enabled border color to white
+                      borderRadius: BorderRadius.all(Radius.circular(17.sp)),
+                    ),
+                    prefixIcon:widget.prefixIcon,
+                    suffixIcon: Stack(
+                      alignment: AlignmentDirectional.center,
+                      children: [
+                        Visibility(
+                          visible: widget.isImage,
+                          child: InkWell(
+                            onTap: widget.uploadMedicalId,
+                            child: AppSVG(assetName: "upload"),
+                          ),
+                        ),
+                        Visibility(
+                          visible: widget.isPassword,
+                          child: InkWell(
+                            onTap: () {
+                              setState(() {
+                                widget.obscureText = !widget.obscureText;
+                              });
+                            },
+                            child: Icon(
+                              widget.obscureText ? Icons.visibility_off : Icons.visibility,
+                              color: Theme.of(context).brightness == Brightness.light ?Colors.black:Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    hintText: widget.hint,
+
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 1.h,
+              )
+            ],
           ),
-          SizedBox(
-            height: 1.h,
-          )
-        ],
+        ),
       ),
     );
   }

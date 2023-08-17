@@ -58,14 +58,6 @@ class _MainChatWidgetState extends State<MainChatWidget> {
                               fontFamily: 'poppins'),
                         ),
                         const Spacer(),
-                        Text(
-                          "2 min ago",
-                          style: TextStyle(
-                              fontSize: 15.sp,
-                              fontWeight: FontWeight.w800,
-                              fontFamily: 'poppins',
-                              color: Colors.grey),
-                        ),
                       ],
                     ),
                     Padding(
@@ -87,12 +79,13 @@ class _MainChatWidgetState extends State<MainChatWidget> {
               SizedBox(
                 width: 5.w,
               ),
-              AppSVG(
-                assetName: 'arrow',
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.black,
-                height: 3.h,
+              Text(
+                "2 min ago",
+                style: TextStyle(
+                    fontSize: 15.sp,
+                    fontWeight: FontWeight.w800,
+                    fontFamily: 'poppins',
+                    color: Colors.grey),
               ),
             ],
           ),
