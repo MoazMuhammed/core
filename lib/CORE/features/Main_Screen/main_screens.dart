@@ -2,7 +2,9 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:core/CORE/cubits/internet/internet_cubit.dart';
 import 'package:core/CORE/cubits/main/main_cubit.dart';
 import 'package:core/CORE/features/Home_Screen/view/home_screen.dart';
+import 'package:core/CORE/features/Search_Screen/search_screen.dart';
 import 'package:core/CORE/features/chat/view/chat_screen.dart';
+import 'package:core/CORE/features/reels/widget/reel_swipe_widget.dart';
 import 'package:core/CORE/utills/safe_print.dart';
 import 'package:core/CORE/utills/svg.dart';
 import 'package:core/CORE/widgets/internet_disconnected_widget.dart';
@@ -23,8 +25,8 @@ class _MainScreensState extends State<MainScreens> {
   int index = 0;
   List<Widget> listScreens = [
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    SearchScreen(),
+    Reels(),
     ChatScreen(),
     HomeScreen(),
     HomeScreen(),
@@ -106,12 +108,12 @@ class _MainScreensState extends State<MainScreens> {
               ],
             )),
         BottomNavigationBarItem(
-            label: 'Friends',
+            label: 'Search',
             icon: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 AppSVG(
-                  assetName: 'addFriend',
+                  assetName: 'search',
                   width: 20.sp,
                   color: cubit.index == 1
                       ? Colors.green

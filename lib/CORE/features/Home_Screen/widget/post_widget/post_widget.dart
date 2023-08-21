@@ -7,7 +7,7 @@ import 'package:readmore/readmore.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class PostWidget extends StatefulWidget {
-  const PostWidget({super.key, required this.profileImage, required this.userName, required this.postDate, required this.postImage, required this.postLike, required this.postComment, required this.postSeen, required this.postTitle, required this.postLikeClickAction, required this.postCommentClickAction, required this.postSeenClickAction});
+  const PostWidget({super.key, required this.profileImage, required this.userName, required this.postDate, required this.postImage, required this.postLike, required this.postComment, required this.postSeen, required this.postTitle, required this.postLikeClickAction, required this.postCommentClickAction, required this.postSeenClickAction, required this.shareClickAction});
   final String profileImage;
   final String userName;
   final String postDate;
@@ -19,6 +19,7 @@ class PostWidget extends StatefulWidget {
   final VoidCallback postLikeClickAction;
   final VoidCallback postCommentClickAction;
   final VoidCallback postSeenClickAction;
+  final VoidCallback shareClickAction;
 
   @override
   State<PostWidget> createState() => _PostWidgetState();
@@ -164,13 +165,24 @@ class _PostWidgetState extends State<PostWidget> {
                           ),
                           PostActionWidget(postLAction: widget.postSeen, postLIconAction: 'eye', postClickAction: widget.postSeenClickAction,)    ,
                           const Spacer(),
+                          GestureDetector(
+                            onTap: widget.shareClickAction,
+                            child: AppSVG(
+                              assetName: 'share',
+                              height: 3.5.h,
+                              color: Theme.of(context).brightness == Brightness.light
+                                  ? Colors.black
+                                  : Colors.white,
+                            ),
+                          ),
+                          SizedBox(width: 1.w,),
                           AppSVG(
                             assetName: 'save',
                             height: 2.5.h,
                             color: Theme.of(context).brightness == Brightness.light
                                 ? Colors.black
                                 : Colors.white,
-                          )
+                          ),
                         ],
                       ),
                     ),

@@ -1,5 +1,7 @@
 import 'package:core/CORE/features/Home_Screen/view/home_screen.dart';
+import 'package:core/CORE/features/Search_Screen/search_screen.dart';
 import 'package:core/CORE/features/chat/view/chat_screen.dart';
+import 'package:core/CORE/features/reels/widget/reel_swipe_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,8 +14,8 @@ class MainCubit extends Cubit<MainState> {
 
   List<Widget> screens = [
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    SearchScreen(),
+    Reels(),
     ChatScreen(),
     HomeScreen(),
     HomeScreen(),
